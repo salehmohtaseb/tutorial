@@ -1,18 +1,28 @@
-import React from 'react';
-import MainLayout from './mainLayout';
+// @flow
 
-export class Layout extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+import * as React from "react";
+import Trip from '../component/main'
+import {
+  Page,
+  Grid
 
-    render() {
-        return (
-            <React.Fragment>
-                <MainLayout >
-                    {this.getRoute()}
-                </MainLayout>
-            </React.Fragment>
-        )
-    }
-};
+} from "tabler-react";
+
+
+import SiteWrapper from "./wrapper.js";
+
+function Home() {
+  return (
+    <SiteWrapper>
+      <Page.Content title="Dashboard">
+        <Grid.Row>
+          <Grid.Col width={12}>
+            <Trip />
+          </Grid.Col>
+        </Grid.Row>
+      </Page.Content>
+    </SiteWrapper>
+  );
+}
+
+export default Home;
