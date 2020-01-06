@@ -4,7 +4,7 @@ import 'animate.css';
 
 export const notify = (message, type = 'success', options = {}) => {
     return store.addNotification({
-        title: options.title || 'Cloudview',
+        title: options.title || 'tutorial',
         message: message,
         type: type,                         // 'default', 'success', 'info', 'warning', 'danger'
         container: 'top-center',                // where to position the notifications

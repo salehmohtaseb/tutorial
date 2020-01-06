@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { mutations } from '../store/mutations';
+import * as mutations from '../store/mutations';
 import Filter from './filter';
 import Table from './table';
-import Modal from './modal'
 
 class Movies extends React.Component {
     constructor(props) {
@@ -29,7 +28,7 @@ const mapStateToProps = ({ trips }) => ({ trips });
 
 const mapDispatchToProps = (dispatch) => ({
     getTrips() {
-        dispatch(mutations.getTrips({}));
+        dispatch(mutations.getTrips());
     }
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Movies);

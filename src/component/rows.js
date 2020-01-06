@@ -1,21 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core'
-import  ModalSample from './modal'
+import ModalSample from './modal'
 
 class TripsTable extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            playMovie: false,
-            idToBePlayed: '',
+            opened: false
         }
+        this.rowToShow = {}
     }
 
     closeModal() {
         this.setState({
-            playMovie: false,
-            idToBePlayed: '',
+            opened: false
         })
     }
 
@@ -37,7 +36,7 @@ class TripsTable extends React.Component {
                         <TableBody>
                             {
                                 this.props.trips.map(row => (
-                                    <TableRow component="tr" scope="row">
+                                    <TableRow component="tr" scope="row" key={row.id}>
                                         <TableCell></TableCell>
                                         <TableCell>{row.from}</TableCell>
                                         <TableCell>{row.to}</TableCell>
@@ -53,7 +52,7 @@ class TripsTable extends React.Component {
                                                     </TableRow>
                                                 </TableHead>
                                                 <TableBody>
-                                                    <TableRow component="tr" scope="row">
+                                                    <TableRow component="tr" scope="row" key={'driver'+ row.driver.id}>
                                                         <TableCell></TableCell>
                                                         <TableCell>{row.driver.name}</TableCell>
                                                         <TableCell>{row.driver.carType}</TableCell>
@@ -63,7 +62,12 @@ class TripsTable extends React.Component {
                                             </Table>
                                         </TableCell>
                                         <TableCell>
-
+                                            <button onClick={() => { 
+                                                this.rowToShow = row
+                                                this.setState({ opened: true }) 
+                                                }} className="btn btn-link">
+                                                <i className="fa fa-edit"></i>
+                                            </button>
                                         </TableCell>
                                     </TableRow>
                                 ))
@@ -71,7 +75,7 @@ class TripsTable extends React.Component {
                         </TableBody>
                     </Table>
                 </TableContainer >
-                {this.state.playMovie ? <ModalSample modalIsOpen={this.state.playMovie} closeModal={() => this.closeModal()} movieId={this.state.idToBePlayed} /> : ''}
+                {this.state.opened ? <ModalSample modalIsOpen={this.state.opened} trip={this.rowToShow} closeModal={() => this.closeModal()} /> : ''}
             </React.Fragment>
         )
     }

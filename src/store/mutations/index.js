@@ -1,20 +1,24 @@
-const GET_TRIPS = 'GET_TRIPS';
-const SET_TRIPS = 'SET_TRIPS';
+export const GET_TRIPS = 'GET_TRIPS';
+export const SET_TRIPS = 'SET_TRIPS';
+export const UPDATE_TRIPS = 'UPDATE_TRIPS';
+export const EDIT_TRIPS = 'EDIT_TRIPS'
 
-const getTrips = (params) => ({
+export const getTrips = (params) => ({
     type: GET_TRIPS,
     params: params
 })
 
-const setTrips = (TRIPS = []) => ({
+export const setTrips = (trips = []) => ({
     type: SET_TRIPS,
-    TRIPS
+    trips
 })
 
-export const mutations = {
-    GET_TRIPS,
-    SET_TRIPS,
-    getTrips,
-    setTrips
-}
+export const updateTrips = (params) => ({
+    type:UPDATE_TRIPS,
+    params
+})
 
+export const editTrip =(params) => ({
+    type:EDIT_TRIPS,
+    params
+})

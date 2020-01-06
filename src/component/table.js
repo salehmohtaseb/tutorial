@@ -3,19 +3,14 @@ import { connect } from 'react-redux';
 import Rows from './rows'
 
 class MainTable extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
-        const tr = this.props.tr
         return (
             <div>
                 <div className="col-xs-12">
                     <div className="panel">
                         <div className="panel-heading">
                             <h4 className='pointer-cursor '>
-                                <a style={{ color: 'inherit' }} className="pull-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href='/' style={{ color: 'inherit' }} className="pull-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Trips
                                 </a>
                             </h4>

@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { mutations } from '../store/mutations';
+import * as mutations from '../store/mutations';
 import { Fade } from 'react-bootstrap';
-import DatePicker from "react-datepicker";
 
 class MovieFilter extends React.Component {
     constructor(props) {
@@ -44,7 +43,7 @@ class MovieFilter extends React.Component {
                     <h4 >
                         <i className="fa fa-filter"></i> Trips Filter
                 </h4>
-                    <a className="collapse-filter pull-right">
+                    <a href='#' className="collapse-filter pull-right">
                         <i id="_appFilterCollapse" ref={this.buttonId} className="fa fa-plus-circle"></i>
                     </a>
                 </div>
@@ -65,7 +64,7 @@ class MovieFilter extends React.Component {
                         </div>
                         <div className="form-group cp4 text-right">
                             <div className="reset-time">
-                                <button id="_appSearchBtn" className="btn btn-default" style={ {backgroundColor: 'cornflowerblue'} }><i className="fa fa-search"></i>search</button>
+                                <button id="_appSearchBtn" className="btn btn-default"  style={ {backgroundColor: 'cornflowerblue'}}><i className="fa fa-search"></i>search</button>
                                 <button id="_appResetBtn" onClick={this.handleReset} className="btn cvs-btn-dark" style={ {backgroundColor: 'cornflowerblue'} }><i className="fa fa-history"></i> reset</button>
                             </div>
                         </div>
